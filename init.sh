@@ -5,3 +5,5 @@ sudo apt-get install gunicorn
 sudo ln -s /home/box/web/etc/hello.conf /etc/gunicorn.d/hello.conf
 sudo ln -s /home/box/web/etc/ask.conf /etc/gunicorn.d/ask.conf
 sudo /etc/init.d/gunicorn restart
+sudo /etc/init.d/mysql start﻿
+mysql -u root -e "create database db_qa"
