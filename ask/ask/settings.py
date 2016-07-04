@@ -62,8 +62,8 @@ DATABASES = {
         'NAME': 'db_qa',
         'USER': 'qa',
         'PASSWORD': 'qa',
-        'HOST': '127.0.0.1',
-        'PORT': '',
+        'HOST': '',
+        'PORT': '3306',
 
     }
 }
