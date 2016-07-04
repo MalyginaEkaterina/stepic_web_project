@@ -60,8 +60,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_qa',
-        'USER': 'root',
-        'PASSWORD': 'moonpie',
+        'USER': 'qa',
+        'PASSWORD': 'qa',
         'HOST': '127.0.0.1',
         'PORT': '',
 
