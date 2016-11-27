@@ -3,18 +3,10 @@ from django.contrib.auth.models import User
 
 class QuestionManager(models.Manager):
     def new(self):
-        from django.db import connection
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM qa_question q ORDER BY q.added_at DESC")
-        last_questions = cursor.fetchall()
-        return last_questions
+        return self.order_by('-added_at')
 
     def popular(self):
-        from django.db import connection
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM qa_question q ORDER BY q.rating DESC")
-        popular_questions = cursor.fetchall()
-        return popular_questions
+        return self.order_by('-rating')
 
 class Question(models.Model):
     title = models.CharField(max_length = 255)

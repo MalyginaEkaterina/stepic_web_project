@@ -1,0 +1,31 @@
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+{% for q in questions %}
+<h1>
+<a href="{% url 'question_page' q.id %}">{{ q.title }}</a>
+</h1>
+{% endfor %}
+<nav>
+<ul class="pagination">
+{% for p in paginator.page_range %}
+{% if p.number == page.number %}
+<li class="active">
+{% else %}
+<li>
+{% endif %}
+<a href="{{ paginator.baseurl }}{{ p }}">{{ p }}</a>
+</li>
+{% endfor %}</ul>
+</nav>
+</body>
+</html>
