@@ -19,7 +19,7 @@ class Question(models.Model):
 
 class Answer(models.Model):
     text = models.TextField() 
-    added_at = models.DateField() 
+    added_at = models.DateField(auto_now_add=True) 
     question = models.ForeignKey(Question) 
     author = models.ForeignKey(User,related_name='+') 
 # Create your models here.
