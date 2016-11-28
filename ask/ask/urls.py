@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from qa.views import test, main_page, question_page, popular_questions
+from qa.views import test, main_page, question_page, popular_questions, ask_page
 
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^login/.*$', test),
     url(r'^signup/.*$', test),
     url(r'^question/(?P<id>[^/]+)/', question_page, name = 'question_page'),
-    url(r'^ask/.*$', test),
+    url(r'^ask/.*$', ask_page, name = 'ask_page'),
     url(r'^popular/.*$', popular_questions, name = 'popular_questions'),
     url(r'^new/.*$', test),
 ]
