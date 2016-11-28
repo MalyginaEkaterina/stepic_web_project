@@ -1,0 +1,35 @@
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>New question</h1>
+<form class="form-horizontal" method="post" action="/ask/">
+{% csrf_token %}
+<fieldset>
+{% for field in form %}
+<div class="control-group {% if field.errors %}has-error{% endif %}">
+<label class="control-label">
+{{ field.label }}
+</label>
+<div class="controls">
+{{ field }}
+</div>
+</div>
+{% endfor %}
+</fieldset>
+<div class="form-actions">
+<button type="submit" class="btn btn-primary">
+Post
+</button>
+</div>
+</form>
+</body>
+</html>
