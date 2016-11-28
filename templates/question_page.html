@@ -15,5 +15,31 @@
 {% for ans in answers %}
 <h2>{{ans.text}}</h2>
 {% endfor %}
+<h3>New answer</h3>
+<form class="form-horizontal" method="post" action="/question/{{question.id}}/">
+{% csrf_token %}
+<fieldset>
+{% for field in form.visible_fields %}
+<div class="control-group {% if field.errors %}has-error{% endif %}">
+<label class="control-label">
+{{ field.label }}
+</label>
+<div class="controls">
+{{ field }}
+</div>
+</div>
+{% endfor %}
+{% for field in form.hidden_fields %}
+<div class="controls">
+{{ field }}
+</div>
+{% endfor %}
+</fieldset>
+<div class="form-actions">
+<button type="submit" class="btn btn-primary">
+Answer
+</button>
+</div>
+</form>
 </body>
 </html>
